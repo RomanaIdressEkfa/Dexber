@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
       rel="stylesheet"
     />
 
@@ -28,7 +28,7 @@
               cream: "#FBF7F0", // Base background
               white: "#FFFFFF", // Card background
               ink: "#1A110D", // Main Dark text
-              mocha: "#5C4A42", // Subtitle text
+              mocha: "#5C4A42", // Subtitle text (darker for readability)
               copper: "#D96B27", // Primary Accent
               copperHover: "#B8551E",
             },
@@ -36,9 +36,9 @@
               sans: ["Raleway", "sans-serif"],
             },
             boxShadow: {
-              "premium-card": "0 10px 30px -10px rgba(36, 22, 17, 0.05)",
+              "premium-card": "0 20px 40px -10px rgba(36, 22, 17, 0.08)",
               "premium-card-hover":
-                "0 20px 40px -15px rgba(217, 107, 39, 0.15)",
+                "0 30px 60px -15px rgba(217, 107, 39, 0.15)",
             },
           },
         },
@@ -57,64 +57,53 @@
       .glow-orb {
         position: absolute;
         border-radius: 50%;
-        filter: blur(80px);
+        filter: blur(100px);
         z-index: 0;
         pointer-events: none;
       }
       .glow-copper {
-        background: rgba(217, 107, 39, 0.12);
+        background: rgba(217, 107, 39, 0.15);
       }
       .glow-dark {
-        background: rgba(26, 17, 13, 0.06);
+        background: rgba(26, 17, 13, 0.08);
       }
 
       /* Beautiful Custom Image Shapes */
       .shape-elegant-1 {
-        border-radius: 2rem 8rem 2rem 2rem;
+        border-radius: 4rem 12rem 4rem 4rem;
         overflow: hidden;
-        box-shadow: 0 20px 40px -10px rgba(36, 22, 17, 0.1);
+        box-shadow: 0 25px 50px -12px rgba(36, 22, 17, 0.15);
       }
-      @media (min-width: 1024px) {
-        .shape-elegant-1 {
-          border-radius: 4rem 12rem 4rem 4rem;
-        }
-      }
-
       .shape-elegant-2 {
-        border-radius: 6rem 2rem 6rem 2rem;
+        border-radius: 12rem 4rem 12rem 4rem;
         overflow: hidden;
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
-      }
-      @media (min-width: 1024px) {
-        .shape-elegant-2 {
-          border-radius: 12rem 4rem 12rem 4rem;
-        }
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
       }
 
       /* Buttons */
       .btn-copper {
         background-color: #d96b27;
         color: #ffffff;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 8px 20px rgba(217, 107, 39, 0.15);
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(217, 107, 39, 0.2);
       }
       .btn-copper:hover {
         background-color: #1a110d;
         color: #ffffff;
-        box-shadow: 0 12px 25px rgba(26, 17, 13, 0.25);
-        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(26, 17, 13, 0.3);
+        transform: translateY(-3px);
       }
 
       .btn-outline {
-        border: 1px solid #1a110d;
+        border: 2px solid #1a110d;
         color: #1a110d;
         background: transparent;
-        transition: all 0.4s ease;
+        transition: all 0.3s ease;
       }
       .btn-outline:hover {
         background-color: #1a110d;
         color: #ffffff;
-        transform: translateY(-2px);
+        transform: translateY(-3px);
       }
 
       /* Link Underline */
@@ -127,7 +116,7 @@
         position: absolute;
         width: 0;
         height: 2px;
-        bottom: -2px;
+        bottom: -4px;
         left: 0;
         background-color: #d96b27;
         transition: width 0.3s ease;
@@ -136,235 +125,156 @@
         width: 100%;
       }
 
+      /* Make content stay above glows */
       .content-layer {
         position: relative;
         z-index: 10;
-      }
-
-      /* Mobile Menu Animation */
-      #mobile-menu {
-        transition:
-          opacity 0.3s ease,
-          visibility 0.3s ease;
-      }
-      .menu-open {
-        opacity: 1 !important;
-        visibility: visible !important;
       }
     </style>
   </head>
   <body class="antialiased selection:bg-copper selection:text-white">
     <!-- Navbar -->
     <header
-      class="fixed w-full top-0 z-50 bg-cream/80 backdrop-blur-xl border-b border-ink/5 py-3 md:py-4 transition-all duration-300"
+      class="fixed w-full top-0 z-50 bg-cream/90 backdrop-blur-lg border-b border-ink/5 py-4 transition-all duration-300"
     >
       <div
-        class="container mx-auto px-5 lg:px-12 flex justify-between items-center"
+        class="container mx-auto px-6 lg:px-12 flex justify-between items-center"
       >
-        <!-- Logo -->
         <a
           href="#"
-          class="text-3xl md:text-4xl font-extrabold tracking-tighter text-ink uppercase z-50"
+          class="text-4xl font-black tracking-tighter text-ink uppercase"
         >
           Dexber<span class="text-copper">.</span>
         </a>
-
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex space-x-8 lg:space-x-12">
+        <nav class="hidden md:flex space-x-10">
           <a
             href="#"
-            class="text-[15px] lg:text-base font-bold text-ink hover:text-copper transition-colors link-anim"
+            class="text-lg font-bold text-ink hover:text-copper transition-colors link-anim"
             >Home</a
           >
           <a
             href="#about"
-            class="text-[15px] lg:text-base font-bold text-ink hover:text-copper transition-colors link-anim"
+            class="text-lg font-bold text-ink hover:text-copper transition-colors link-anim"
             >About</a
           >
           <a
             href="#services"
-            class="text-[15px] lg:text-base font-bold text-ink hover:text-copper transition-colors link-anim"
+            class="text-lg font-bold text-ink hover:text-copper transition-colors link-anim"
             >Services</a
           >
           <a
             href="#products"
-            class="text-[15px] lg:text-base font-bold text-ink hover:text-copper transition-colors link-anim"
+            class="text-lg font-bold text-ink hover:text-copper transition-colors link-anim"
             >Products</a
           >
           <a
             href="#contact"
-            class="text-[15px] lg:text-base font-bold text-ink hover:text-copper transition-colors link-anim"
+            class="text-lg font-bold text-ink hover:text-copper transition-colors link-anim"
             >Contact</a
           >
         </nav>
-
-        <!-- CTA / Mobile Toggle -->
-        <div class="flex items-center gap-4 z-50">
-          <a
-            href="#contact"
-            class="hidden md:inline-block px-7 py-2.5 text-sm lg:text-base font-bold rounded-full btn-copper"
-          >
-            Get Started
-          </a>
-          <!-- Mobile Menu Button -->
-          <button
-            id="menu-btn"
-            class="md:hidden text-ink p-2 focus:outline-none"
-          >
-            <svg
-              class="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                id="menu-icon"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
-        </div>
+        <a
+          href="#contact"
+          class="hidden md:inline-block px-8 py-3 text-lg font-bold rounded-full btn-copper"
+        >
+          Get Started
+        </a>
       </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div
-      id="mobile-menu"
-      class="fixed inset-0 bg-cream/98 backdrop-blur-2xl z-40 opacity-0 invisible flex flex-col justify-center items-center"
-    >
-      <nav class="flex flex-col space-y-6 text-center">
-        <a
-          href="#"
-          class="text-2xl font-bold text-ink hover:text-copper mobile-link"
-          >Home</a
-        >
-        <a
-          href="#about"
-          class="text-2xl font-bold text-ink hover:text-copper mobile-link"
-          >About</a
-        >
-        <a
-          href="#services"
-          class="text-2xl font-bold text-ink hover:text-copper mobile-link"
-          >Services</a
-        >
-        <a
-          href="#products"
-          class="text-2xl font-bold text-ink hover:text-copper mobile-link"
-          >Products</a
-        >
-        <a
-          href="#contact"
-          class="text-2xl font-bold text-ink hover:text-copper mobile-link"
-          >Contact</a
-        >
-        <a
-          href="#contact"
-          class="mt-6 px-8 py-3 text-lg font-bold rounded-full btn-copper mobile-link inline-block"
-          >Get Started</a
-        >
-      </nav>
-    </div>
-
     <!-- Hero Section -->
     <section
-      class="relative pt-28 pb-12 md:pt-36 md:pb-16 lg:pt-40 lg:pb-16 overflow-hidden bg-cream"
+      class="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden bg-cream"
     >
+      <!-- Ambient Background Glow -->
       <div
-        class="glow-orb glow-copper w-[300px] md:w-[500px] h-[300px] md:h-[500px] -top-10 -right-10 md:-top-20 md:-right-20"
+        class="glow-orb glow-copper w-[600px] h-[600px] -top-20 -right-20"
+      ></div>
+      <div
+        class="glow-orb glow-dark w-[500px] h-[500px] bottom-0 -left-40"
       ></div>
 
-      <div class="container mx-auto px-5 lg:px-12 content-layer">
-        <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+      <div class="container mx-auto px-6 lg:px-12 content-layer">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <!-- Text -->
-          <div class="w-full lg:w-1/2 text-center lg:text-left mt-8 lg:mt-0">
+          <div class="w-full lg:w-1/2">
             <h1
-              class="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.1] text-ink mb-5 tracking-tight gsap-reveal"
+              class="text-6xl md:text-7xl lg:text-[5rem] font-black leading-[1.05] text-ink mb-6 tracking-tighter gsap-reveal"
             >
-              Architects of <br class="hidden md:block" />
-              <span class="text-copper italic font-semibold">Digital</span>
-              Future.
+              Architects of <br />
+              <span class="text-copper">Digital</span> Future.
             </h1>
             <p
-              class="text-lg md:text-xl lg:text-2xl text-mocha mb-8 max-w-lg mx-auto lg:mx-0 font-medium leading-relaxed gsap-reveal"
+              class="text-2xl text-mocha mb-10 max-w-lg font-semibold leading-relaxed gsap-reveal"
             >
               We forge elite software and immersive platforms for brands that
               demand absolute perfection.
             </p>
-            <div
-              class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 gsap-reveal"
-            >
+            <div class="flex flex-wrap gap-5 gsap-reveal">
               <a
                 href="#services"
-                class="w-full sm:w-auto px-8 py-3.5 md:py-4 font-bold text-base md:text-lg rounded-full btn-copper text-center"
+                class="px-10 py-4 font-bold text-xl rounded-full btn-copper"
               >
                 Explore Services
               </a>
               <a
                 href="#products"
-                class="w-full sm:w-auto px-8 py-3.5 md:py-4 font-bold text-base md:text-lg rounded-full btn-outline text-center"
+                class="px-10 py-4 font-bold text-xl rounded-full btn-outline"
               >
                 View Platform
               </a>
             </div>
           </div>
 
-          <!-- Hero Image -->
-          <div class="w-full lg:w-1/2 relative gsap-reveal mt-8 md:mt-0">
+          <!-- Beautiful Shaped Image -->
+          <div class="w-full lg:w-1/2 relative gsap-reveal">
             <div
-              class="shape-elegant-1 w-full h-[350px] md:h-[500px] lg:h-[550px] relative bg-white p-2"
+              class="shape-elegant-1 w-full h-[450px] lg:h-[600px] relative bg-white border-8 border-white"
             >
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
                 alt="Premium Team"
-                class="w-full h-full object-cover rounded-[1.5rem_7.5rem_1.5rem_1.5rem] lg:rounded-[3.5rem_11.5rem_3.5rem_3.5rem]"
+                class="w-full h-full object-cover"
               />
+              <!-- Subtle color overlay on image -->
               <div
-                class="absolute inset-0 bg-copper/10 mix-blend-multiply rounded-[1.5rem_7.5rem_1.5rem_1.5rem] lg:rounded-[3.5rem_11.5rem_3.5rem_3.5rem]"
+                class="absolute inset-0 bg-copper/10 mix-blend-multiply"
               ></div>
             </div>
-            <!-- Floating Badge -->
+            <!-- Floating abstract element -->
             <div
-              class="absolute -bottom-6 -left-4 md:-bottom-8 md:-left-8 w-24 h-24 md:w-32 md:h-32 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl border border-white animate-pulse"
+              class="absolute -bottom-10 -left-10 w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-cream animate-pulse"
             >
-              <span class="text-3xl md:text-4xl">✨</span>
+              <span class="text-5xl">✨</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Inline About Section -->
-    <section
-      id="about"
-      class="py-8 md:py-10 bg-white border-y border-ink/5 relative"
-    >
+    <!-- Inline About Section (Tight spacing) -->
+    <section id="about" class="py-10 bg-white border-y border-ink/5 relative">
       <div
-        class="container mx-auto px-5 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left gsap-reveal content-layer"
+        class="container mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gsap-reveal content-layer"
       >
-        <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-          <div class="hidden md:block w-16 h-1 bg-copper rounded-full"></div>
+        <div class="flex items-center gap-6">
+          <div class="w-20 h-1.5 bg-copper rounded-full"></div>
           <div>
-            <h2
-              class="text-2xl md:text-3xl font-extrabold text-ink tracking-tight"
-            >
+            <h2 class="text-4xl font-black text-ink tracking-tight">
               About Dexber
             </h2>
-            <p class="text-mocha font-medium md:text-lg mt-1">
+            <p class="text-mocha font-bold text-lg mt-1">
               Leading Technology & Software Agency
             </p>
           </div>
         </div>
         <a
           href="#"
-          class="group flex items-center text-ink font-bold hover:text-copper transition-colors text-base md:text-lg"
+          class="mt-6 md:mt-0 group flex items-center text-ink font-bold hover:text-copper transition-colors text-xl"
         >
-          <span class="mr-2 link-anim pb-1">Discover Our Story</span>
+          <span class="mr-3 link-anim pb-1">Discover Our Story</span>
           <svg
-            class="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform"
+            class="w-7 h-7 transform group-hover:translate-x-2 transition-transform"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -380,39 +290,33 @@
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section
-      id="services"
-      class="py-12 md:py-16 lg:py-20 bg-cream relative overflow-hidden"
-    >
+    <!-- Redesigned Services Section (Premium Cards) -->
+    <section id="services" class="py-20 bg-cream relative overflow-hidden">
+      <!-- Huge central background glow -->
       <div
-        class="glow-orb glow-copper w-[500px] md:w-[800px] h-[500px] md:h-[800px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-40"
+        class="glow-orb glow-copper w-[800px] h-[800px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-60"
       ></div>
 
-      <div class="container mx-auto px-5 lg:px-12 content-layer">
-        <div class="text-center mb-10 md:mb-14 gsap-reveal">
-          <h2
-            class="text-4xl md:text-5xl font-extrabold text-ink mb-3 tracking-tight"
-          >
+      <div class="container mx-auto px-6 lg:px-12 content-layer">
+        <div class="text-center mb-16 gsap-reveal">
+          <h2 class="text-5xl lg:text-6xl font-black text-ink mb-4">
             Our Services
           </h2>
-          <p
-            class="text-lg md:text-xl text-mocha font-medium max-w-2xl mx-auto"
-          >
+          <p class="text-2xl text-mocha font-semibold max-w-2xl mx-auto">
             Mastercrafting digital solutions to elevate your empire.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <!-- Cards (Repeated structure) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Card 1 -->
           <div
-            class="bg-white rounded-[2rem] p-8 md:p-10 shadow-premium-card hover:shadow-premium-card-hover hover:-translate-y-1.5 border border-ink/5 transition-all duration-500 gsap-card group"
+            class="bg-white rounded-3xl p-10 md:p-12 shadow-premium-card hover:shadow-premium-card-hover hover:-translate-y-2 border border-ink/5 transition-all duration-300 gsap-card group"
           >
             <div
-              class="w-16 h-16 md:w-20 md:h-20 bg-cream rounded-2xl flex items-center justify-center text-copper mb-6 group-hover:bg-copper group-hover:text-white transition-colors duration-500"
+              class="w-20 h-20 bg-cream rounded-2xl flex items-center justify-center text-copper mb-8 group-hover:bg-copper group-hover:text-white transition-colors duration-300"
             >
               <svg
-                class="w-8 h-8 md:w-10 md:h-10"
+                class="w-10 h-10"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -420,30 +324,27 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="1.5"
+                  stroke-width="2"
                   d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                 ></path>
               </svg>
             </div>
-            <h3 class="text-2xl md:text-3xl font-extrabold text-ink mb-3">
-              Software Dev.
-            </h3>
-            <p
-              class="text-base md:text-lg text-mocha font-medium leading-relaxed"
-            >
+            <h3 class="text-4xl font-black text-ink mb-4">Software Dev.</h3>
+            <p class="text-xl text-mocha font-medium leading-relaxed">
               Bespoke, enterprise-level software engineered for massive scale,
               absolute security, and fluid performance.
             </p>
           </div>
 
+          <!-- Card 2 -->
           <div
-            class="bg-white rounded-[2rem] p-8 md:p-10 shadow-premium-card hover:shadow-premium-card-hover hover:-translate-y-1.5 border border-ink/5 transition-all duration-500 gsap-card group"
+            class="bg-white rounded-3xl p-10 md:p-12 shadow-premium-card hover:shadow-premium-card-hover hover:-translate-y-2 border border-ink/5 transition-all duration-300 gsap-card group"
           >
             <div
-              class="w-16 h-16 md:w-20 md:h-20 bg-cream rounded-2xl flex items-center justify-center text-copper mb-6 group-hover:bg-copper group-hover:text-white transition-colors duration-500"
+              class="w-20 h-20 bg-cream rounded-2xl flex items-center justify-center text-copper mb-8 group-hover:bg-copper group-hover:text-white transition-colors duration-300"
             >
               <svg
-                class="w-8 h-8 md:w-10 md:h-10"
+                class="w-10 h-10"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -451,30 +352,27 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="1.5"
+                  stroke-width="2"
                   d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
                 ></path>
               </svg>
             </div>
-            <h3 class="text-2xl md:text-3xl font-extrabold text-ink mb-3">
-              Web Solutions
-            </h3>
-            <p
-              class="text-base md:text-lg text-mocha font-medium leading-relaxed"
-            >
+            <h3 class="text-4xl font-black text-ink mb-4">Web Solutions</h3>
+            <p class="text-xl text-mocha font-medium leading-relaxed">
               Immersive, high-converting digital web experiences crafted with
               cutting-edge architectural technologies.
             </p>
           </div>
 
+          <!-- Card 3 -->
           <div
-            class="bg-white rounded-[2rem] p-8 md:p-10 shadow-premium-card hover:shadow-premium-card-hover hover:-translate-y-1.5 border border-ink/5 transition-all duration-500 gsap-card group"
+            class="bg-white rounded-3xl p-10 md:p-12 shadow-premium-card hover:shadow-premium-card-hover hover:-translate-y-2 border border-ink/5 transition-all duration-300 gsap-card group"
           >
             <div
-              class="w-16 h-16 md:w-20 md:h-20 bg-cream rounded-2xl flex items-center justify-center text-copper mb-6 group-hover:bg-copper group-hover:text-white transition-colors duration-500"
+              class="w-20 h-20 bg-cream rounded-2xl flex items-center justify-center text-copper mb-8 group-hover:bg-copper group-hover:text-white transition-colors duration-300"
             >
               <svg
-                class="w-8 h-8 md:w-10 md:h-10"
+                class="w-10 h-10"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -482,30 +380,27 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="1.5"
+                  stroke-width="2"
                   d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                 ></path>
               </svg>
             </div>
-            <h3 class="text-2xl md:text-3xl font-extrabold text-ink mb-3">
-              IT Consulting
-            </h3>
-            <p
-              class="text-base md:text-lg text-mocha font-medium leading-relaxed"
-            >
+            <h3 class="text-4xl font-black text-ink mb-4">IT Consulting</h3>
+            <p class="text-xl text-mocha font-medium leading-relaxed">
               Strategic, royal-tier guidance to perfectly align your
               technological infrastructure with ambitious goals.
             </p>
           </div>
 
+          <!-- Card 4 -->
           <div
-            class="bg-white rounded-[2rem] p-8 md:p-10 shadow-premium-card hover:shadow-premium-card-hover hover:-translate-y-1.5 border border-ink/5 transition-all duration-500 gsap-card group"
+            class="bg-white rounded-3xl p-10 md:p-12 shadow-premium-card hover:shadow-premium-card-hover hover:-translate-y-2 border border-ink/5 transition-all duration-300 gsap-card group"
           >
             <div
-              class="w-16 h-16 md:w-20 md:h-20 bg-cream rounded-2xl flex items-center justify-center text-copper mb-6 group-hover:bg-copper group-hover:text-white transition-colors duration-500"
+              class="w-20 h-20 bg-cream rounded-2xl flex items-center justify-center text-copper mb-8 group-hover:bg-copper group-hover:text-white transition-colors duration-300"
             >
               <svg
-                class="w-8 h-8 md:w-10 md:h-10"
+                class="w-10 h-10"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -513,17 +408,13 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="1.5"
+                  stroke-width="2"
                   d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                 ></path>
               </svg>
             </div>
-            <h3 class="text-2xl md:text-3xl font-extrabold text-ink mb-3">
-              Product Design
-            </h3>
-            <p
-              class="text-base md:text-lg text-mocha font-medium leading-relaxed"
-            >
+            <h3 class="text-4xl font-black text-ink mb-4">Product Design</h3>
+            <p class="text-xl text-mocha font-medium leading-relaxed">
               From visionary ideation to flawless execution, bringing luxurious
               digital products to life.
             </p>
@@ -532,44 +423,40 @@
       </div>
     </section>
 
-    <!-- Product Showcase -->
+    <!-- Product Showcase (Dark Premium Contrast) -->
     <section
       id="products"
-      class="py-12 md:py-16 lg:py-20 bg-ink text-white relative overflow-hidden"
+      class="py-20 bg-ink text-white relative overflow-hidden"
     >
+      <!-- Copper glow on dark background -->
       <div
-        class="glow-orb glow-copper w-[400px] md:w-[700px] h-[400px] md:h-[700px] bottom-0 right-0 opacity-30"
+        class="glow-orb glow-copper w-[700px] h-[700px] bottom-0 right-0 opacity-40"
       ></div>
 
       <div
-        class="container mx-auto px-5 lg:px-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 content-layer"
+        class="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-16 content-layer"
       >
-        <!-- Text -->
-        <div class="w-full lg:w-1/2 text-center lg:text-left gsap-reveal">
+        <div class="w-full lg:w-1/2 gsap-reveal">
           <span
-            class="text-copper font-bold text-sm md:text-base tracking-widest uppercase mb-3 block"
+            class="text-copper font-black text-xl tracking-widest uppercase mb-4 block"
             >Flagship Product</span
           >
-          <h2
-            class="text-4xl md:text-5xl lg:text-[4rem] font-extrabold leading-tight mb-5 tracking-tight"
-          >
-            Citthe <br class="hidden lg:block" />
+          <h2 class="text-5xl lg:text-[4rem] font-black leading-tight mb-6">
+            Citthe <br />
             <span class="font-light italic text-cream">Platform</span>
           </h2>
-          <p
-            class="text-cream/80 mb-8 font-medium text-lg md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0"
-          >
+          <p class="text-cream/80 mb-10 font-medium text-2xl leading-relaxed">
             Connect and collaborate with unprecedented elegance. A secure,
             highly refined communication hub designed exclusively for the modern
             elite enterprise.
           </p>
           <a
             href="#"
-            class="inline-flex items-center px-8 py-3.5 btn-copper font-bold text-base md:text-lg rounded-full group"
+            class="inline-flex items-center px-10 py-4 btn-copper font-bold text-xl rounded-full group"
           >
             Discover Citthe
             <svg
-              class="w-5 h-5 ml-2 transform group-hover:translate-x-1.5 transition-transform"
+              class="w-6 h-6 ml-3 transform group-hover:translate-x-2 transition-transform"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -577,34 +464,34 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                stroke-width="2.5"
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               ></path>
             </svg>
           </a>
         </div>
 
-        <!-- Product Image -->
-        <div class="w-full lg:w-1/2 relative gsap-reveal mt-8 lg:mt-0">
+        <div class="w-full lg:w-1/2 relative gsap-reveal">
+          <!-- Another beautiful shape for contrast -->
           <div
-            class="shape-elegant-2 w-full h-[350px] md:h-[500px] lg:h-[600px] bg-white border border-white/20 p-2 relative"
+            class="shape-elegant-2 w-full h-[500px] lg:h-[650px] bg-white border-4 border-copper/30 p-2 relative"
           >
             <img
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80"
               alt="Citthe Dashboard"
-              class="w-full h-full object-cover rounded-[5.5rem_1.5rem_5.5rem_1.5rem] lg:rounded-[11.5rem_3.5rem_11.5rem_3.5rem]"
+              class="w-full h-full object-cover rounded-[11rem_3rem_11rem_3rem]"
             />
           </div>
 
-          <!-- Glassmorphism Badge -->
+          <!-- Floating Glassmorphism Badge -->
           <div
-            class="absolute bottom-4 left-2 md:top-20 md:-left-8 bg-ink/40 backdrop-blur-xl border border-white/10 p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-2xl flex items-center gap-3 md:gap-4"
+            class="absolute top-20 -left-10 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-3xl shadow-2xl flex items-center gap-4"
           >
             <div
-              class="w-10 h-10 md:w-14 md:h-14 rounded-full bg-copper flex items-center justify-center"
+              class="w-14 h-14 rounded-full bg-copper flex items-center justify-center"
             >
               <svg
-                class="w-5 h-5 md:w-7 md:h-7 text-white"
+                class="w-7 h-7 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -618,46 +505,40 @@
               </svg>
             </div>
             <div>
-              <p
-                class="text-xs md:text-sm uppercase tracking-widest text-cream/80 font-semibold"
-              >
+              <p class="text-sm uppercase tracking-widest text-cream font-bold">
                 Encrypted
               </p>
-              <p class="text-lg md:text-2xl font-bold text-white leading-tight">
-                Secure
-              </p>
+              <p class="text-2xl font-black text-white">Secure</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="py-12 md:py-16 lg:py-20 bg-white relative">
-      <div class="container mx-auto px-5 lg:px-12 content-layer">
-        <div class="text-center mb-10 md:mb-14 gsap-reveal">
-          <h2
-            class="text-4xl md:text-5xl font-extrabold text-ink mb-3 tracking-tight"
-          >
+    <!-- Why Choose Us Section (White background, super clean) -->
+    <section class="py-20 bg-white relative">
+      <div class="container mx-auto px-6 lg:px-12 content-layer">
+        <div class="text-center mb-16 gsap-reveal">
+          <h2 class="text-5xl lg:text-6xl font-black text-ink mb-4">
             Why <span class="text-copper">Dexber?</span>
           </h2>
-          <p
-            class="text-lg md:text-xl text-mocha font-medium max-w-2xl mx-auto"
-          >
+          <p class="text-2xl text-mocha font-semibold max-w-2xl mx-auto">
             Choosing us means choosing uncompromising quality and royal service.
           </p>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center">
-          <!-- Features -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center"
+        >
+          <!-- Feature 1 -->
           <div
-            class="p-6 md:p-8 bg-cream rounded-2xl md:rounded-[2rem] shadow-premium-card hover:-translate-y-2 transition-transform duration-500 border border-ink/5 gsap-card group"
+            class="p-10 bg-cream rounded-3xl shadow-premium-card hover:-translate-y-3 transition-transform duration-300 border border-ink/5 gsap-card group"
           >
             <div
-              class="w-14 h-14 md:w-20 md:h-20 mx-auto mb-4 md:mb-6 flex items-center justify-center rounded-full bg-white text-copper shadow-md group-hover:bg-copper group-hover:text-white transition-colors duration-500"
+              class="w-24 h-24 mx-auto mb-6 flex items-center justify-center rounded-full bg-white text-copper shadow-lg group-hover:bg-copper group-hover:text-white transition-colors duration-300"
             >
               <svg
-                class="w-6 h-6 md:w-8 md:h-8"
+                class="w-12 h-12"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -670,17 +551,17 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-lg md:text-xl font-bold text-ink">Innovation</h3>
+            <h3 class="text-2xl font-black text-ink">Innovation</h3>
           </div>
-
+          <!-- Feature 2 -->
           <div
-            class="p-6 md:p-8 bg-cream rounded-2xl md:rounded-[2rem] shadow-premium-card hover:-translate-y-2 transition-transform duration-500 border border-ink/5 gsap-card group"
+            class="p-10 bg-cream rounded-3xl shadow-premium-card hover:-translate-y-3 transition-transform duration-300 border border-ink/5 gsap-card group"
           >
             <div
-              class="w-14 h-14 md:w-20 md:h-20 mx-auto mb-4 md:mb-6 flex items-center justify-center rounded-full bg-white text-copper shadow-md group-hover:bg-copper group-hover:text-white transition-colors duration-500"
+              class="w-24 h-24 mx-auto mb-6 flex items-center justify-center rounded-full bg-white text-copper shadow-lg group-hover:bg-copper group-hover:text-white transition-colors duration-300"
             >
               <svg
-                class="w-6 h-6 md:w-8 md:h-8"
+                class="w-12 h-12"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -693,17 +574,17 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-lg md:text-xl font-bold text-ink">Security</h3>
+            <h3 class="text-2xl font-black text-ink">Security</h3>
           </div>
-
+          <!-- Feature 3 -->
           <div
-            class="p-6 md:p-8 bg-cream rounded-2xl md:rounded-[2rem] shadow-premium-card hover:-translate-y-2 transition-transform duration-500 border border-ink/5 gsap-card group"
+            class="p-10 bg-cream rounded-3xl shadow-premium-card hover:-translate-y-3 transition-transform duration-300 border border-ink/5 gsap-card group"
           >
             <div
-              class="w-14 h-14 md:w-20 md:h-20 mx-auto mb-4 md:mb-6 flex items-center justify-center rounded-full bg-white text-copper shadow-md group-hover:bg-copper group-hover:text-white transition-colors duration-500"
+              class="w-24 h-24 mx-auto mb-6 flex items-center justify-center rounded-full bg-white text-copper shadow-lg group-hover:bg-copper group-hover:text-white transition-colors duration-300"
             >
               <svg
-                class="w-6 h-6 md:w-8 md:h-8"
+                class="w-12 h-12"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -716,17 +597,17 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-lg md:text-xl font-bold text-ink">Scalable</h3>
+            <h3 class="text-2xl font-black text-ink">Scalability</h3>
           </div>
-
+          <!-- Feature 4 -->
           <div
-            class="p-6 md:p-8 bg-cream rounded-2xl md:rounded-[2rem] shadow-premium-card hover:-translate-y-2 transition-transform duration-500 border border-ink/5 gsap-card group"
+            class="p-10 bg-cream rounded-3xl shadow-premium-card hover:-translate-y-3 transition-transform duration-300 border border-ink/5 gsap-card group"
           >
             <div
-              class="w-14 h-14 md:w-20 md:h-20 mx-auto mb-4 md:mb-6 flex items-center justify-center rounded-full bg-white text-copper shadow-md group-hover:bg-copper group-hover:text-white transition-colors duration-500"
+              class="w-24 h-24 mx-auto mb-6 flex items-center justify-center rounded-full bg-white text-copper shadow-lg group-hover:bg-copper group-hover:text-white transition-colors duration-300"
             >
               <svg
-                class="w-6 h-6 md:w-8 md:h-8"
+                class="w-12 h-12"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -739,43 +620,42 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-lg md:text-xl font-bold text-ink">Design</h3>
+            <h3 class="text-2xl font-black text-ink">Design</h3>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Bold CTA Section -->
-    <section class="py-14 md:py-20 bg-copper relative overflow-hidden">
-      <div class="absolute inset-0 bg-ink opacity-[0.03]"></div>
+    <section class="py-20 bg-copper relative overflow-hidden">
+      <!-- Abstract shadow overlay -->
+      <div class="absolute inset-0 bg-ink opacity-5"></div>
       <div
-        class="glow-orb bg-white w-[300px] md:w-[500px] h-[300px] md:h-[500px] -top-10 -right-10 opacity-20"
+        class="glow-orb bg-white w-[500px] h-[500px] -top-20 -right-20 opacity-20"
       ></div>
 
       <div
-        class="container mx-auto px-5 lg:px-12 text-center relative z-10 gsap-reveal content-layer"
+        class="container mx-auto px-6 lg:px-12 text-center relative z-10 gsap-reveal content-layer"
       >
         <h2
-          class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 tracking-tight"
+          class="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter"
         >
-          Ready for <br class="hidden sm:block" />
+          Ready for <br />
           <span class="italic font-light">Excellence?</span>
         </h2>
-        <p
-          class="text-lg md:text-xl text-white/90 font-medium mb-8 max-w-xl mx-auto"
-        >
+        <p class="text-2xl text-white/90 font-semibold mb-10 max-w-2xl mx-auto">
           Start your monument project with our master architects today.
         </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
           <a
             href="#contact"
-            class="px-8 py-3.5 md:py-4 bg-ink text-white font-bold text-base md:text-lg rounded-full hover:bg-white hover:text-ink transition-colors duration-400 shadow-xl"
+            class="px-12 py-5 bg-ink text-white font-bold text-xl rounded-full hover:bg-white hover:text-ink transition-colors duration-300 shadow-2xl"
           >
             Contact Us Now
           </a>
           <a
             href="#quote"
-            class="px-8 py-3.5 md:py-4 bg-transparent border border-white/50 text-white font-bold text-base md:text-lg rounded-full hover:bg-white hover:text-copper transition-colors duration-400"
+            class="px-12 py-5 bg-transparent border-2 border-white text-white font-bold text-xl rounded-full hover:bg-white hover:text-copper transition-colors duration-300"
           >
             Request A Quote
           </a>
@@ -784,26 +664,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-ink pt-16 pb-8 text-white">
-      <div class="container mx-auto px-5 lg:px-12">
+    <footer class="bg-ink pt-20 pb-10 text-white">
+      <div class="container mx-auto px-6 lg:px-12">
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 mb-12"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16"
         >
           <div class="lg:col-span-2">
             <a
               href="#"
-              class="text-4xl font-extrabold tracking-tighter text-white uppercase inline-block mb-4"
+              class="text-5xl font-black tracking-tighter text-white uppercase inline-block mb-6"
             >
               Dexber<span class="text-copper">.</span>
             </a>
-            <p class="text-cream/60 font-medium text-base md:text-lg max-w-sm">
+            <p class="text-cream/70 font-medium text-xl max-w-sm">
               Crafting supreme digital experiences for the modern era.
             </p>
           </div>
 
           <div>
-            <h4 class="font-bold text-white mb-5 text-lg">About</h4>
-            <ul class="space-y-3 text-cream/60 font-medium text-base">
+            <h4 class="font-black text-white mb-6 text-xl">About</h4>
+            <ul class="space-y-4 text-cream/70 font-semibold text-lg">
               <li>
                 <a href="#" class="hover:text-copper transition-colors"
                   >Company</a
@@ -823,17 +703,15 @@
           </div>
 
           <div>
-            <h4 class="font-bold text-white mb-5 text-lg">Services</h4>
-            <ul class="space-y-3 text-cream/60 font-medium text-base">
+            <h4 class="font-black text-white mb-6 text-xl">Services</h4>
+            <ul class="space-y-4 text-cream/70 font-semibold text-lg">
               <li>
                 <a href="#" class="hover:text-copper transition-colors"
                   >Software</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-copper transition-colors"
-                  >Web Apps</a
-                >
+                <a href="#" class="hover:text-copper transition-colors">Web</a>
               </li>
               <li>
                 <a href="#" class="hover:text-copper transition-colors"
@@ -844,30 +722,30 @@
           </div>
 
           <div>
-            <h4 class="font-bold text-white mb-5 text-lg">Connect</h4>
-            <ul class="space-y-3 text-cream/60 font-medium text-base mb-5">
+            <h4 class="font-black text-white mb-6 text-xl">Connect</h4>
+            <ul class="space-y-4 text-cream/70 font-semibold text-lg mb-6">
               <li>hello@dexber.com</li>
             </ul>
-            <div class="flex gap-3">
-              <a
-                href="#"
-                class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/80 hover:bg-copper hover:border-copper hover:text-white transition-all text-sm font-bold"
-                >In</a
+            <div class="flex gap-4 mt-6">
+              <div
+                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-copper hover:border-copper transition-all cursor-pointer font-bold text-lg"
               >
-              <a
-                href="#"
-                class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/80 hover:bg-copper hover:border-copper hover:text-white transition-all text-sm font-bold"
-                >Tw</a
+                In
+              </div>
+              <div
+                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-copper hover:border-copper transition-all cursor-pointer font-bold text-lg"
               >
+                Tw
+              </div>
             </div>
           </div>
         </div>
 
         <div
-          class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 text-cream/40 font-semibold text-xs md:text-sm tracking-widest uppercase gap-4 text-center md:text-left"
+          class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-cream/50 font-bold text-sm tracking-widest uppercase gap-4"
         >
           <p>© 2024 DEXBER. ALL RIGHTS RESERVED.</p>
-          <div class="space-x-4 md:space-x-6">
+          <div class="space-x-6">
             <a href="#" class="hover:text-copper transition-colors">Privacy</a>
             <a href="#" class="hover:text-copper transition-colors">Terms</a>
           </div>
@@ -875,50 +753,21 @@
       </div>
     </footer>
 
-    <!-- Scripts (GSAP + Mobile Menu) -->
+    <!-- GSAP Smooth Animations -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // --- Mobile Menu Logic ---
-        const menuBtn = document.getElementById("menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const menuIcon = document.getElementById("menu-icon");
-        const mobileLinks = document.querySelectorAll(".mobile-link");
-
-        let isMenuOpen = false;
-
-        function toggleMenu() {
-          isMenuOpen = !isMenuOpen;
-          mobileMenu.classList.toggle("menu-open");
-
-          if (isMenuOpen) {
-            menuIcon.setAttribute("d", "M6 18L18 6M6 6l12 12"); // Close (X) icon
-            document.body.style.overflow = "hidden"; // Prevent scrolling
-          } else {
-            menuIcon.setAttribute("d", "M4 6h16M4 12h16M4 18h16"); // Hamburger icon
-            document.body.style.overflow = "auto"; // Enable scrolling
-          }
-        }
-
-        menuBtn.addEventListener("click", toggleMenu);
-        mobileLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            if (isMenuOpen) toggleMenu();
-          });
-        });
-
-        // --- GSAP Animations ---
         gsap.registerPlugin(ScrollTrigger);
 
         const revealElements = document.querySelectorAll(".gsap-reveal");
         revealElements.forEach((el) => {
           gsap.fromTo(
             el,
-            { opacity: 0, y: 30 },
+            { opacity: 0, y: 50 },
             {
               opacity: 1,
               y: 0,
-              duration: 1,
-              ease: "power2.out",
+              duration: 1.2,
+              ease: "power3.out",
               scrollTrigger: {
                 trigger: el,
                 start: "top 85%",
@@ -938,13 +787,13 @@
           const cards = section.querySelectorAll(".gsap-card");
           gsap.fromTo(
             cards,
-            { opacity: 0, y: 40 },
+            { opacity: 0, y: 50 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.8,
-              stagger: 0.1,
-              ease: "power2.out",
+              duration: 1,
+              stagger: 0.15,
+              ease: "power3.out",
               scrollTrigger: {
                 trigger: section,
                 start: "top 85%",
